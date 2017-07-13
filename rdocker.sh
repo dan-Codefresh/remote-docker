@@ -39,7 +39,7 @@ else
 fi
 control_path="$HOME/.rdocker-master-$(date +%s%N)"
 
-ssh "${remote_host}" -i "$ssh_key_file" -nNf -o "StrictHostKeyChecking no" -o ControlMaster=yes -o ControlPath="${control_path}" -o ControlPersist=yes
+ssh "${remote_host}" -i "$ssh_key_file" -p 2200 -nNf -o "StrictHostKeyChecking no" -o ControlMaster=yes -o ControlPath="${control_path}" -o ControlPersist=yes
 
 if [ ! -S "${control_path}" ]; then
     exit
